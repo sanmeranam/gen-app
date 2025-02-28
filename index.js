@@ -46,7 +46,12 @@ app.post('/api/resume-from-jd', async (req, res) => {
 });
 
 app.get('/api/session-user', async (req, res) => {
-    res.json(req.session.user);
+    const user = req.session.user;
+    if (user) {
+        res.json(user);
+    } else {
+        res.status(401).json({ error: "Not logged in" });
+    }
 });
 
 app.get('/api/logout', async (req, res) => {
