@@ -17,7 +17,8 @@ const upload = multer({ dest: "uploads/" });
 
 
 app.use(session({
-    secret: 'keyboard cat'
+    secret: 'keyboard cat',
+    expires: new Date(Date.now() + (24 * 3600 * 1000)) 
 }))
 
 // allow cross-origin requests
