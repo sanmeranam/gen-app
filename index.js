@@ -16,12 +16,7 @@ app.use(express.static('public'));
 const upload = multer({ dest: "uploads/" });
 
 
-app.use(session({
-    secret: 'keyboard cat',
-    resave: false,
-    saveUninitialized: true,
-    cookie: { secure: true }
-}))
+app.use(session())
 
 // allow cross-origin requests
 app.use((req, res, next) => {
